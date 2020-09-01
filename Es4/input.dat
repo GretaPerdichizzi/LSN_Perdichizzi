@@ -15,5 +15,5 @@
   ReadInput >> delta;
   ReadInput >> nstep;
   ReadInput >> iprint;
-	ReadInpu >> nblk;
+	ReadInput >> nblk;
 	ReadInput >> restart;

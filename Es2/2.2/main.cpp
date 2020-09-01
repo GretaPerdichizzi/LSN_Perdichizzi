@@ -37,11 +37,11 @@ int main (int argc, char *argv[]){
 	int a=1;				    // lenght of the step
 	ofstream WriteRN;
 	WriteRN.open("discrete_lenghts");
-	double RW [step]={0};
-	double RW2 [step]={0};
+	double RW [step+1]={0};
+	double RW2 [step+1]={0};
 	if (WriteRN.is_open()){
 		for(int n=0; n<L; n++){
-			int count=0;
+			int count=1;
 			int walk[] = {0, 0, 0};   // the origin in 0,0,0
 			for (int i=n*step; i<step*(n+1); i++){
 				//Selecting the direction and the orientation of the walk
@@ -60,7 +60,7 @@ int main (int argc, char *argv[]){
 				count++;
 			}	
 		}
-		for(int i=0; i<step; i++){
+		for(int i=0; i<step+1; i++){
 			WriteRN << i <<"\t" << RW[i]/L << "\t" << sqrt(RW2[i]/L/L-pow(RW[i]/L,2)/L) << endl;
 		}
 	}
@@ -74,11 +74,11 @@ int main (int argc, char *argv[]){
 
 	ofstream WriteRW;
 	WriteRW.open("continuum_lenghts");
-	double RW_continuum [step]={0};
-	double RW2_continuum [step]={0};
+	double RW_continuum [step+1]={0};
+	double RW2_continuum [step+1]={0};
 	if (WriteRW.is_open()){
 		for(int n=0; n<L; n++){
-			int count=0;
+			int count=1;
 			double walk[] = {0, 0, 0};   // the origin in 0,0,0
 			for (int i=n*step; i<step*(n+1); i++){
 				//Selecting the direction and the orientation of the walk
@@ -92,7 +92,7 @@ int main (int argc, char *argv[]){
 				count++;
 			}	
 		}
-		for(int i=0; i<step; i++){
+		for(int i=0; i<step+1; i++){
 			WriteRW << i <<"\t" << RW_continuum[i]/L << "\t" << sqrt(RW2_continuum[i]/L/L-pow(RW_continuum[i]/L,2)/L) << endl;
 		}
 	}
